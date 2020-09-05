@@ -8,8 +8,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences sp;
@@ -54,6 +57,17 @@ public class MainActivity extends AppCompatActivity {
             fout.flush();
             fout.close();
             Toast.makeText(this, "Save OK", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void test3(View view){
+        try {
+            FileInputStream fin =  openFileInput("brad.txt");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fin));
+            String line = reader.readLine();
+            fin.close();
+            tv.setText(line);
         } catch (Exception e) {
             e.printStackTrace();
         }
