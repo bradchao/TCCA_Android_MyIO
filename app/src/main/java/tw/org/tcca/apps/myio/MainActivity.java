@@ -102,4 +102,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void test6(View view) {
+        // delete from cust where id = 2;
+        db.delete("cust", "id = ?", new String[]{"2"});
+        test4(null);
+    }
+    public void test7(View view){
+        ContentValues values = new ContentValues();
+        values.put("cname", "peter");
+        values.put("tel", "7654321");
+        db.update("cust",values, "id = ?", new String[]{"3"});
+    }
+
 }

@@ -48,8 +48,14 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="test1"
-        android:text="Test1"
+        android:onClick="test6"
+        android:text="Test6"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="test7"
+        android:text="Test7"
         />
 
 </LinearLayout>
