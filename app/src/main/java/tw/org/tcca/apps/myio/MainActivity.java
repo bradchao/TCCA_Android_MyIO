@@ -2,9 +2,12 @@ package tw.org.tcca.apps.myio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -78,4 +81,25 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    public void test4(View view){
+        // SELECT * FROM cust
+        Cursor c = db.query("cust", null, null, null,null, null, null);
+        while (c.moveToNext()){
+            String id = c.getString(c.getColumnIndex("id"));
+            String cname = c.getString(c.getColumnIndex("cname"));
+            String tel = c.getString(c.getColumnIndex("tel"));
+            Log.v("bradlog", id +":" + cname + ":" + tel);
+        }
+    }
+
+    public void test5(View view){
+        ContentValues values = new ContentValues();
+        values.put("cname", "brad");
+        values.put("tel", "1234567");
+        db.insert("cust", null, values);
+        test4(null);
+    }
+
+
 }

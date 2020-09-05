@@ -36,14 +36,14 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="test1"
-        android:text="Test1"
+        android:onClick="test4"
+        android:text="Test4"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="test1"
-        android:text="Test1"
+        android:onClick="test5"
+        android:text="Test5"
         />
     <Button
         android:layout_width="match_parent"
