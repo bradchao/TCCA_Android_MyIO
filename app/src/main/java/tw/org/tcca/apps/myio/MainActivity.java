@@ -3,6 +3,7 @@ package tw.org.tcca.apps.myio;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -21,11 +22,16 @@ public class MainActivity extends AppCompatActivity {
     private String name;
     private int counter;
     private boolean sound;
+    private MyDBHelper myDBHelper;
+    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        myDBHelper = new MyDBHelper(this, "tcca", null, 1);
+        db = myDBHelper.getReadableDatabase();
 
         tv = findViewById(R.id.tv);
 
