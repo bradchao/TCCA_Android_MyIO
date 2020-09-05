@@ -6,6 +6,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences sp;
@@ -44,5 +48,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void test2(View view) {
+        try {
+            FileOutputStream fout =  openFileOutput("brad.txt", MODE_PRIVATE);
+            fout.write("Hello, World".getBytes());
+            fout.flush();
+            fout.close();
+            Toast.makeText(this, "Save OK", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
